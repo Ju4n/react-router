@@ -1,14 +1,10 @@
-import { Col, Row } from "antd";
+import UserForm from '../components/UserForm';
 
 export default function FormOne() {
   return (
-   <Row>
-    <Col className="col-12">
-    <h1> HOLA </h1>
-    </Col>
-    <Col className="col-12">
-    <h1> HOLA </h1>
-    </Col>
-   </Row>
+    <div>
+      <h1> User Form </h1>
+      <UserForm />
+    </div>
   );
 }

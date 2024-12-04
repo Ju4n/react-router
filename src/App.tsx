@@ -2,12 +2,12 @@ import {
   MenuFoldOutlined,
   MenuUnfoldOutlined,
 } from '@ant-design/icons';
-import { Button, Layout, Menu, theme } from 'antd';
+import { Button, Layout, theme } from 'antd';
 import { useState } from 'react';
 import Main from './components/Main';
 import MainMenu from './components/MainMenu';
 
-const { Header, Content, Sider } = Layout;
+const { Header, Content, Sider, Footer } = Layout;
 
 function App() {
   const [collapsed, setCollapsed] = useState(false);
@@ -17,34 +17,25 @@ function App() {
 
   return (
     <Layout>
-      <Sider trigger={null} collapsible collapsed={collapsed}>
-        <div className="demo-logo-vertical" />
+      <Sider style={{ borderTopLeftRadius: 10 }}>
         <MainMenu />
       </Sider>
-      <Layout>
-        <Header style={{ padding: 0, background: colorBgContainer }}>
-          <Button
-            type="text"
-            icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-            onClick={() => setCollapsed(!collapsed)}
-            style={{
-              fontSize: '16px',
-              width: 64,
-              height: 64,
-            }}
-          />
-        </Header>
+      <Layout style={{ borderRadius: 10 }}>
+        <Header style={{ borderTopRightRadius: 10 }}></Header>
         <Content
           style={{
             margin: '24px 16px',
             padding: 24,
-            minHeight: 280,
+            minHeight: 700,
             background: colorBgContainer,
             borderRadius: borderRadiusLG,
           }}
         >
           <Main />
         </Content>
+        <Footer style={{ textAlign: 'center' }}>
+          Juan ©{new Date().getFullYear()}
+        </Footer>
       </Layout>
     </Layout>
   );
